@@ -554,6 +554,40 @@ storiesOf('tauka', module)
         </div>
       )
   })
+  .add('Nested scroll on both axes', () => {
+	return (
+	  <div className={style.root}>
+	  	<div className={style['super-wrapper']}>
+			<div className={style['scroll-wrapper']}>
+				<div className={style['block-1']}>
+				</div>
+				<div className={style['block-3']}>
+				</div>
+			</div>
+			<div className={style['scroll-wrapper']}>
+				<div className={style['block-1']}>
+				</div>
+				<ListWrapper
+				component={SortableList}
+				axis={'xy'}
+				items={getWords(60)}
+				helperClass={style.stylizedHelper}
+				className={classNames(style.list, style.stylizedList, style['scroll-words'])}
+				itemClass={classNames(style.stylizedItem, style['scroll-wordItem'])}
+				/>
+				<div className={style['block-3']}>
+				</div>
+			</div>
+			<div className={style['scroll-wrapper']}>
+				<div className={style['block-1']}>
+				</div>
+				<div className={style['block-3']}>
+				</div>
+			</div>
+		</div>
+	  </div>
+	)
+})
 
 storiesOf('react-virtualized', module)
   .add('Basic usage', () => {

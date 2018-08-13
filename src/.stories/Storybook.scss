@@ -93,7 +93,7 @@
     width: 130px;
     padding: 8px;
     background: transparent;
-    border: 0;
+	border: 0;
 
     .wrapper {
         display: flex;
@@ -121,6 +121,48 @@
 
 .wordItem {
 	min-width: 0;
+	text-align: center;
+	border: 1px solid black;
+	margin: 0 .3em .3em 0;
+}
+
+.super-wrapper {
+	height: 100px;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+.scroll-wrapper {
+	display: flex;
+	justify-content: center;
+	width: 700px;
+	background-color: red;
+
+	.block-1, .block-3 {
+		flex-shrink: 0;
+		height: 100px;
+		width: 300px;
+	}
+
+	.block-1 {
+		background-color: orange;
+	}
+
+	.block-3 {
+		background-color: cyan
+	}
+}
+
+.scroll-words {
+	flex-shrink: 0;
+	width: 300px;
+	height: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	overflow-x: auto;
+}
+
+.scroll-wordItem {
 	text-align: center;
 	border: 1px solid black;
 }
