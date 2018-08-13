@@ -11,8 +11,8 @@
 
 // Base styles
 .list {
-    width: 400px;
-    height: 600px;
+    // width: 400px;
+    // height: 600px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     border: 1px solid #999;
@@ -35,7 +35,7 @@
 .stylizedItem {
     display: flex;
     align-items: center;
-    width: 100%;
+    // width: 100%;
     padding: 0 20px;
     background-color: #FFF;
     border-bottom: 1px solid #EFEFEF;
@@ -79,7 +79,8 @@
 
 // Grid
 .grid {
-    display: block;
+	display: flex;
+	flex-wrap: wrap;
     width: 130 * 4px;
     height: 350px;
     white-space: nowrap;
@@ -110,6 +111,18 @@
             display: none;
         }
     }
+}
+
+.words {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 100px 0;
+}
+
+.wordItem {
+	min-width: 0;
+	text-align: center;
+	border: 1px solid black;
 }
 
 // Nested

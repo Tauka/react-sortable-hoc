@@ -634,7 +634,11 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
                 // If it moves passed the left bounds, then animate it to the last position of the previous row.
                 // We just use the offset of the previous node to calculate where to move, because that node's original position
                 // is exactly where we want to go
-                translate.x = prevNode.edgeOffset.left - edgeOffset.left;
+                if (edgeOffset.left > 0) {
+                  translate.x = prevNode.edgeOffset.left - edgeOffset.left;
+                } else {
+                  translate.x = (prevNode.edgeOffset.left - edgeOffset.left) - ((this.width + this.marginOffset.x)) + prevNode.node.offsetWidth;
+                }
                 translate.y = prevNode.edgeOffset.top - edgeOffset.top;
               }
               this.newIndex = index;

@@ -27,6 +27,12 @@ function getItems(count, height) {
   });
 }
 
+function getWords(height) {
+  const words = 
+    ["Blackbird", "singing", "in", "the", "dead", "of", "night.", "Take", "those", "broken", "wings", "and", "learn", "to", "fly"];
+  return words.map(word => ({ value: word, height }));
+}
+
 const Handle = SortableHandle(() => <div className={style.handle} />);
 
 const Item = SortableElement(props => {
@@ -40,7 +46,7 @@ const Item = SortableElement(props => {
     >
       {props.shouldUseDragHandle && <Handle />}
       <div className={style.wrapper}>
-        <span>Item</span> {props.value}
+        {props.value}
       </div>
     </div>
   );
@@ -532,6 +538,22 @@ storiesOf('react-tiny-virtual-list', module)
       </div>
     );
   });
+
+storiesOf('tauka', module)
+  .add('Words', () => {
+      return (
+        <div className={style.root}>
+          <ListWrapper
+            component={SortableList}
+            axis={'xy'}
+            items={getWords(60)}
+            helperClass={style.stylizedHelper}
+            className={classNames(style.list, style.stylizedList, style.words)}
+            itemClass={classNames(style.stylizedItem, style.wordItem)}
+          />
+        </div>
+      )
+  })
 
 storiesOf('react-virtualized', module)
   .add('Basic usage', () => {
